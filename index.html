@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#087A64" >
+    <meta property="og:image" content="img/logo-share.png">
+    <link href="style.css" rel="stylesheet">
+    <link rel = "shortcut icon" href = "img/favicon.ico"/>
+    <title>Liga Dados</title>
+    <script src="modules/jquery.min.js"></script>
+    <script type="text/javascript" src="src/spapp.js"></script>
+    <link href="modules/bootstrap.min.css" rel="stylesheet">
+    <script src="modules/interact.min.js"></script>
+</head>
+<body onload="isRefreshed();">
+    <audio src="audio/bensound-ukulele.mp3" allow="autoplay" muted="true" preload="auto" loop id="musicaInicio" >
+        <p>Seu nevegador não suporta o elemento audio.</p>
+    </audio>
+    <div class="container-fluid">
+        <nav class="d-none justify-content-around align-items-center" id="navbar" >
+            <a href="#inicio"><img src="img/arrow-back.png"class="nav-icon-size"></a>
+            <a href="#inicio"><img src="img/logo-eic.png" class="logo-icon-size"></a>
+            <a onclick="menuShow()" style="text-decoration: black;"><img src="img/menu.png"class="nav-icon-size"></a>
+        </nav> 
+        <div  id="sombra" class="d-none" onclick="menuHide('menu-desktop');menuHide('menu-tablet');menuHide('menu-mobile');">
+            <div id="menu-desktop" class="d-none d-sm-none d-md-none d-lg-block">
+                <div id="ret"  class="d-flex" >
+                    <img src="img/arrow-back.png" class="nav-icon-size position-absolute justify-content-between align-items-start" onclick="menuHide('menu-desktop');">
+                    <img src="img/logo-eic-negativo.png"   style="width:379.75px; height: 162,75px;" class="justify-content-center align-self-center">
+                </div>
+                <div class="options-desktop">
+                    <a class="menu-links" href="#inicio" onclick="menuHide('menu-desktop');"><img src="img/home-dark.png" height="35px" width="35px">
+                    <span>   Início</span><br></a>
+                    <a class="menu-links" href="#sobre" onclick="menuHide('menu-desktop');"><img src="img/help.png" height="35px" width="35px">
+                    <span>   Sobre o Jogo</span><br></a>
+                    <a class="menu-links" href="#creditos" onclick="menuHide('menu-desktop');"><img src="img/group.png" height="35px" width="35px">
+                    <span>   Créditos</span><br></a>
+                    <a class="menu-links" href="#compartilhar" onclick="menuHide('menu-desktop');"><img src="img/share.png" height="35px" width="35px">
+                    <span>   Compartilhar</span></a>
+                </div>
+            </div>
+            <div id="menu-tablet" class="d-none d-sm-block d-md-block d-lg-none">
+                <div id="ret"  class="d-flex" >
+                    <img src="img/arrow-back.png" class="nav-icon-size position-absolute justify-content-between align-items-start" onclick="menuHide('menu-tablet');">
+                    <img src="img/logo-eic-negativo.png"   style="width:379.75px; height: 162,75px;" class="justify-content-center align-self-center">
+                </div>
+                <div class="options-tablet">
+                    <a class="menu-links" href="#inicio" onclick="menuHide('menu-tablet');"><img src="img/home-dark.png" height="25px" width="25px">
+                    <span>   Início</span><br></a>
+                    <a class="menu-links" href="#sobre" onclick="menuHide('menu-tablet');"><img src="img/help.png" height="25px" width="25px">
+                    <span>   Sobre o Jogo</span><br></a>
+                    <a class="menu-links" href="#creditos" onclick="menuHide('menu-tablet');"><img src="img/group.png" height="25px" width="25px">
+                    <span>   Créditos</span><br></a>
+                    <a class="menu-links" href="#compartilhar" onclick="menuHide('menu-tablet');"><img src="img/share.png" height="25px" width="25px">
+                    <span>   Compartilhar</span></a>
+                </div>
+            </div>
+            <div id="menu-mobile" class="d-block d-sm-none">
+                <div id="ret"  class="d-flex" >
+                    <img src="img/arrow-back.png" class="nav-icon-size position-absolute justify-content-between align-items-start" onclick="menuHide('menu-mobile');">
+                    <img src="img/logo-eic-negativo.png"   style="width:379.75px; height: 162,75px;" class="justify-content-center align-self-center">
+                </div>
+                <div class="options-mobile">
+                    <a class="menu-links" href="#inicio" onclick="menuHide('menu-mobile');"><img src="img/home-dark.png" height="25px" width="25px">
+                    <span>   Início</span><br></a>
+                    <a class="menu-links" href="#sobre" onclick="menuHide('menu-mobile');"><img src="img/help.png" height="25px" width="25px">
+                    <span>   Sobre o Jogo</span><br></a>
+                    <a class="menu-links" href="#creditos" onclick="menuHide('menu-mobile');"><img src="img/group.png" height="25px" width="25px">
+                    <span>   Créditos</span><br></a>
+                    <a class="menu-links" href="#compartilhar" onclick="menuHide('menu-mobile');"><img src="img/share.png" height="25px" width="25px">
+                    <span>   Compartilhar</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="align-self-center position-fixed">
+                <span>
+                    <section id="inicio" default>                    
+                        <div id="margin-mobile"  class="d-md-block d-lg-none">
+                            <div id="bloco-inicial-mobile">
+                                <table width="100%"  height="80vh">
+                                    <tbody width="inherit">
+                                        <tr class="d-flex justify-content-end">
+                                            <td>
+                                                <img src="img/btn-som.png" style="width: 2.8vh; height: 2.8vh;" class="imageSom" onclick="playPause(src);" >
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-bottom: 10%;">
+                                                <h1 class="d-none d-sm-block display-4" >Liga Dados</h1>
+                                                <h2 class="d-none d-sm-block">Doenças Negligenciadas</h2>
+                                                <p class="d-block d-sm-none" style="font-size: 60px !important">Liga Dados</p>
+                                                <p class="d-block d-sm-none">Doenças Negligenciadas</p>
+                                            </td>                  
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-bottom: 7%; padding-top: 7%;">
+                                                <a href="#escolha-jogo"><img src="img/btn-jogar.png" ></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-center" style="padding-bottom: 10%; padding-top: 10%;">
+                                            <td>
+                                                <a href="#sobre"><img src="img/btn-sobre-game.png"></a>
+                                            </td>
+                                            <td  class= "pl-2 pr-2">
+                                                <a href="#creditos"><img src="img/btn-créditos.png"></a>
+                                            </td>
+                                            <td >
+                                                <a href="#compartilhar"><img src="img/btn-compartilhar.png"></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="img/logo-eic-horizontal.png" style="width: 210px;height: 101px;">
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div id="margin-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            <table id="bloco-inicial-desktop" class="d-flex">
+                                <tbody style="width: inherit;" > 
+                                    <tr class="d-flex justify-content-end">
+                                        <td>
+                                            <img src="img/btn-som.png" style="width: 35px; height: 35px;" class="imageSom" onclick="playPause(src)">
+                                        </td>
+                                    </tr>
+                                    <tr class="d-flex justify-content-center">
+                                        <td id="center-title">
+                                            <h1 class=" display-4">Liga Dados</h1>
+                                            <h2>Doenças Negligenciadas</h2>
+                                        </td>                  
+                                    </tr>
+                                    <tr class="d-flex justify-content-center">
+                                        <td class="pt-4">
+                                            <a href="#escolha-jogo"><img src="img/btn-jogar.png" style="width: 210px; height: 60px;"></a>
+                                        </td>
+                                    </tr>
+                                    <tr class= "d-flex justify-content-center pt-4">
+                                        <td>
+                                            <a href="#sobre"><img src="img/btn-sobre-game.png"></a>
+                                        </td>
+                                        <td>
+                                            <a href="#creditos"><img src="img/btn-créditos.png"></a>
+                                        </td>
+                                        <td>
+                                            <a href="#compartilhar"><img src="img/btn-compartilhar.png"></a>
+                                        </td>
+                                    </tr>
+                                    <tr class="d-flex justify-content-center pt-4">
+                                        <td>
+                                            <img src="img/logo-eic-horizontal.png" style="width: 210px;height: 101px;">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                                
+                    </section>
+
+                    <section id="sobre">
+                        <div id = "bloco-mobile" class="d-md-block d-lg-none">
+                            <div class="center">
+                                <table style="margin:24px">
+                                    <tbody>
+                                        <tr>                             
+                                        <td style="width: 80vw; position: absolute; text-align: center; font-size: 5vh;">
+                                            <p>Sobre o jogo</p>
+                                        </td>
+                                        <td width="20px" style="padding-bottom:4vh;">
+                                            <img src="img/btn-som.png" style="width: 2.8vh; height: 2.8vh;" class="imageSom" onclick="playPause(src);" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-justify align-self-center">
+                                            <p class="p-sobre">O Liga Dados é um jogo educativo de associações de imagens e palavras relacionadas às doenças negligênciadas.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class= "d-flex justify-content-start">
+                                        <td class="align-self-center" style=" padding-right:16px"> 
+                                            <img src="img/lepto.png" style="width: 76px; height: 76px;">
+                                        </td>
+                                        <td class="text-justify align-self-center">
+                                            <p class="p-sobre">Escolha entre os temas: Doença de Chagas, Leishmaniose Tegumentar, Esquistossomose, Leptospirose, Leishmaniose Visceral e Malária.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class= "d-flex justify-content-start align-self-center">
+                                        <td class="align-self-center" style=" padding-right:16px">
+                                            <img src="img/medium.png" style="width: 76px; height: 76px;">
+                                        </td>
+                                        <td class="text-justify align-self-center">
+                                            <p class="p-sobre">Selecione um nível de dificuldade, cada nível representa um número de associações que devem ser feitas. Escolha entre 3, 4 e 5.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class= "d-flex justify-content-start align-self-center">
+                                        <td class="align-self-center" style=" padding-right:16px"> 
+                                            <img src="img/febre.png" style="width: 76px; height: 76px;">
+                                        </td>
+                                        <td class="text-justify align-self-center">
+                                            <p class="p-sobre">Arraste e solte as imagens nos campos correspondentes.</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>     
+                                        <td >
+                                            <p class="title-desktop">Sobre o jogo</p>
+                                        </td>
+                                        <td>
+                                            <img src="img/btn-som.png" style="width: 30px; height: 30px;" class="imageSom" onclick="playPause(src)">
+                                        </td>
+                                    </tr>
+                                    <tr class="d-flex justify-content-start p-2">
+                                        <td class="text-justify">
+                                            <p class="text-desktop">O Liga Dados é um jogo educativo de associações de imagens e palavras relacionadas às doenças negligênciadas.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class= "d-flex justify-content-start align-items-center p-2">
+                                        <td> 
+                                            <img src="img/lepto.png" style="width: 90px; height: 90px;">
+                                        </td>
+                                        <td class="text-justify" style="padding-left: 16px">
+                                            <p class="text-desktop">Escolha entre os temas: Doença de Chagas, Leishmaniose Tegumentar, Esquistossomose, Leptospirose, Leishmaniose Visceral e Malária.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class= "d-flex justify-content-start align-items-center p-2">
+                                        <td>
+                                            <img src="img/medium.png" style="width: 90px; height: 90px;">
+                                        </td>
+                                        <td class="text-justify" style="padding-left: 16px">
+                                            <p class="text-desktop">Selecione um nível de dificuldade, cada nível representa um número de associações que devem ser feitas. Escolha entre 3, 4 e 5.</p>
+                                        </td>
+                                    </tr>
+                                    <tr class= "d-flex justify-content-start align-items-center p-2">
+                                        <td> 
+                                            <img src="img/febre.png" style="width: 90px; height: 90px;">
+                                        </td>
+                                        <td class="text-justify" style="padding-left: 16px">
+                                            <p class="text-desktop">Arraste e solte as imagens nos campos correspondentes.</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                                
+                    </section>
+
+                    <section id="creditos">
+                        <div id = "bloco-mobile" class="d-md-block d-lg-none credits-mobile">
+                            <div class="center">
+                                <div>
+                                    <table style="width: 100%;">
+                                        <tbody>
+                                            <tr>                             
+                                                <td style="width: 100%; height: 50px; text-align:center; position:absolute; font-size:3.5vh">
+                                                    <p >Créditos</p>
+                                                </td>
+                                                <td style="width: 100%; text-align: right; position: absolute; padding-right: 8px;">
+                                                    <img src="img/btn-som.png" style="width: 2.8vh; height: 2.8vh;" class="imageSom" onclick="playPause(src);" >
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="mt-4">Coordenação Geral</p>
+                                    <p class="personName-mobile">Leila M. Beltramini</p>
+                                        
+                                    <p class="topic-credits">Supervisão</p>
+                                    <p class="personName-mobile">Nelma R. S. Bossolan</p>
+                                        
+                                    <p class="topic-credits">Consultor de TI</p>
+                                    <p class="personName-mobile">Claudinei C. Souza (versão 1)</p>
+                                    <p class="personName-mobile">Simone F. Souza (versão 2)</p>
+                                    
+                                    <p class="topic-credits">Desenvolvimento</p>
+                                    <p class="personName-mobile">Ana Clara K. Ferreira (versão 1)</p>
+                                    <p class="personName-mobile">Laura Genari Alves de Jesus (versão 2)</p>
+                                    
+                                    <p class="topic-credits">Arte e Conteúdo</p>
+                                    <p class="personName-mobile">Marília F. (arte 1.0 conteúdo 1.0 e 2.0)</p>
+                                    <p class="personName-mobile">Fundo vetorial por iconicbestiary - br.freepik.com</p>
+                                    <p class="personName-mobile">Músicas: www.bensound.com</p>
+        
+                                    <p class="topic-credits">Design de Interface</p>
+                                    <p class="personName-mobile">Simone F. Souza</p>
+                                    <p class="personName-mobile">Laura Genari Alves de Jesus</p>
+        
+                                    <p class="topic-credits">Avaliação</p>
+                                    <p class="personName-mobile">Gislaine G. Costa(versão 1)</p>
+                                </div>                                
+                            </div>                            
+                        </div>
+
+                        <div id = "bloco-desktop" class="d-none d-sm-none d-md-none d-lg-block">
+                            
+                            <table width="100%">
+                                <tbody>
+                                    <tr>     
+                                        <td >
+                                            <p class="title-desktop">Creditos</p>
+                                        </td>
+                                        <td width="30px">
+                                            <img src="img/btn-som.png" style="width: 30px; height: 30px;" class="imageSom" onclick="playPause(src)">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="d-flex  justify-content-between" style="width: 100%; text-align: center;">
+                                <div class="ml-5 mb-4">
+                                    <p class="credits-desktop mt-2 mb-0">Coordenação Geral</p>
+                                    <small class="personName-desktop">Leila M. Beltramini</small>
+                                        
+                                    <p class="credits-desktop mt-3 mb-0">Supervisão</p>
+                                    <small class="personName-desktop">Nelma R. S. Bossolan</small>
+                                        
+                                    <p class="credits-desktop mt-3 mb-0">Consultor de TI</p>
+                                    <small class="personName-desktop">Claudinei C. Souza (versão 1)</small> <br>
+                                    <small class="personName-desktop">Simone F. Souza (versão 2)</small>
+                                    
+                                    <p class="credits-desktop mt-3 mb-0">Desenvolvimento</p>
+                                    <small class="personName-desktop">Ana Clara K. Ferreira (versão 1)</small><br>
+                                    <small class="personName-desktop">Laura G. A. de Jesus (versão 2)</small>
+                                </div>
+                                <div class="mr-5 mr-5 mb-4">
+                                    <p class="credits-desktop mt-2 mb-0">Arte e Conteúdo</p>
+                                    <small class="personName-desktop">Marília F. (arte 1.0 conteúdo 1.0 e 2.0)<br>
+                                   Fundo vetorial por iconicbestiary - br.freepik.com</small><br>
+                                   <small class="personName-desktop">Músicas: www.bensound.com</small>
+
+                                    <p class="credits-desktop mt-3 mb-0">Design de Interface</p>
+                                    <small class="personName-desktop">Simone F. Souza</small><br>
+                                    <small class="personName-desktop">Laura G. A. de Jesus</small>
+
+                                    <p class="credits-desktop mt-3 mb-0">Avaliação</p>
+                                    <small class="personName-desktop">Gislaine G. Costa(versão 1)</small>
+                                </div>
+                            </div>
+                            
+                        </div>                                
+                    </section>
+                    
+                    <section id="compartilhar">
+                        <div id = "bloco-mobile" class="d-md-block d-lg-none">
+                            <div class="center">
+                                <table style="margin:24px; width:90%">
+                                    <tbody>
+                                        <tr class="d-flex justify-content-end">                             
+                                            <td style="text-align: right;">
+                                                <img src="img/btn-som.png" style="width: 2.8vh; height: 2.8vh;" class="imageSom" onclick="playPause(src);" >
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-center">
+                                            <td>
+                                                <p style="font-size:5vh">Compartilhe o jogo</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-center pt-3">
+                                            <td>
+                                                <p class="personName-mobile">Compartilhe o jogo Liga Dados com os seus amigos e familiares!</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-center pb-3 pt-3">
+                                            <td>
+                                                <a href="" class="btn-face" target="_blank"><img src="img/btn-face.png"></a>
+                                            </td>
+                                            <td class="pl-3 pr-3">
+                                                <a  class="btn-whats" target="_blank"  href=""><img src="img/btn-whats.png"></a>
+                                            </td>
+                                            <td>
+                                                <a  class="btn-telegram" target="_blank" href=""><img src="img/btn-telegram.png"></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-center pt-5">
+                                            <td>
+                                                <p style="font-size:5vh">Siga o EIC</p>
+                                            </td>
+                                        </tr>
+    
+                                        <tr class="d-flex justify-content-center pt-3">
+                                            <td>
+                                                <p class="personName-mobile">Interaja com a gente nas mídias sociais!</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-center pt-3">
+                                            <td>
+                                                <a href="https://www.facebook.com/EIC.USP/" target="_blank" ><img src="img/btn-facebook.png"></a>
+                                            </td>
+                                            <td class="pl-2">
+                                                <a href="https://www.instagram.com/eiciencia/?hl=pt-br" target="_blank"><img src="img/btn-insta.png"></a>
+                                            </td>
+                                            <td class="pl-2">
+                                                <a href="https://www.youtube.com/channel/UCjg75EYzCSLYCcxcXOuv_-g" target="_blank"><img src="img/btn-youbube.png"></a>
+                                            </td>
+                                            <td  class="pl-2">
+                                                <a href="http://eic.ifsc.usp.br/" target="_blank"><img src="img/btn-site.png"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div id = "bloco-desktop" class="d-none d-sm-none d-md-none d-lg-block">
+                            <div class="d-flex justify-content-end mb-5" style="text-align: right;">
+                                    <img src="img/btn-som.png" style="width: 35px; height: 35px;" class="imageSom" onclick="playPause(src);" >
+                            </div><br>
+                            <div class="d-flex mt-3 justify-content-between">
+                                <div style="width:32.5vw" class="d-inline-block">
+                                    <table>
+                                        <tbody>
+                                            <tr class="d-flex justify-content-center">
+                                                <td>
+                                                    <h1>Compartilhe o jogo</h1>
+                                                </td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-center pt-3 pb-3">
+                                                <td>
+                                                    <p class="personName-desktop text-center">Compartilhe o jogo Liga Dados com os seus amigos e familiares!</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-center">
+                                                <td>
+                                                    <a href="" class="btn-face" target="_blank"><img src="img/btn-face.png"></a>
+                                                </td>
+                                                <td class="pl-3 pr-3">
+                                                    <a class="btn-whats" target="_blank"  href=""><img src="img/btn-whats.png"></a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn-telegram" target="_blank" href=""><img src="img/btn-telegram.png"></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div  style="width:32.5vw" class="d-inline-block">
+                                    <table width="100%">
+                                        <tbody>
+                                            <tr class="d-flex justify-content-center">
+                                                <td>
+                                                    <h1>Siga o EIC</h1>
+                                                </td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-center pt-3 pb-3">
+                                                <td>
+                                                    <p class="personName-desktop">Interaja com a gente nas mídias sociais!</p>
+                                                </td>
+                                            </tr>
+                                            <tr class="d-flex justify-content-center">
+                                                <td>
+                                                    <a href="https://www.facebook.com/EIC.USP/" target="_blank" ><img src="img/btn-facebook.png"></a>
+                                                </td>
+                                                <td class="pl-2">
+                                                    <a href="https://www.instagram.com/eiciencia/?hl=pt-br" target="_blank"><img src="img/btn-insta.png"></a>
+                                                </td>
+                                                <td class="pl-2">
+                                                    <a href="https://www.youtube.com/channel/UCjg75EYzCSLYCcxcXOuv_-g" target="_blank"><img src="img/btn-youbube.png"></a>
+                                                </td>
+                                                <td  class="pl-2">
+                                                    <a href="http://eic.ifsc.usp.br/" target="_blank"><img src="img/btn-site.png"></a>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>                           
+
+                                </div>
+
+                            </div>
+                        </div>                                
+                    </section>
+
+                    <section id="escolha-jogo">                                    
+                        <div id = "bloco-mobile" class="d-md-block d-lg-none">
+                            <div class="center">
+
+                                <table width="100%">
+                                    <tbody>
+                                        <tr class = "text-center">                            
+                                            <td colspan="2" style="text-align:right">
+                                                <img src="img/btn-som.png" style="width: 2.8vh; height: 2.8vh;" class="imageSom" onclick="playPause(src);" >
+                                            </td>
+                                        </tr>
+                                        <tr> 
+                                            <td colspan="2">
+                                                <p style="font-size: 4vh;">Escolha um tema</p>
+                                            </td>    
+                                        </tr>                         
+                                        <tr class="d-flex pt-3">
+                                            <td>
+                                                <a href="#escolha-nivel" id="malaria" onclick="game(id)"><img src="img/malaria/vetor.png" style="width:12vh; height:12vh;"></a>
+                                                <p class="p-choose-mobile">Malária</p>
+                                            </td>
+                                            <td>
+                                                <a href="#escolha-nivel" id="leishvis" onclick="game(id)"><img src="img/leishvis/transmissao.png" style="width:12vh; height:12vh;"></a>
+                                                <p class="p-choose-mobile">Leishmaniose Visceral</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex pt-3">
+                                            <td>
+                                                <a href="#escolha-nivel" id="chagas" onclick="game(id)"><img src="img/chagas/vetor.png" style="width:12vh; height:12vh;"></a>
+                                                <p class="p-choose-mobile">Doença de Chagas</p>
+                                            </td>
+                                            <td>
+                                                <a href="#escolha-nivel" id="esqui" onclick="game(id)"><img src="img/esqui/vetor.png" style="width:12vh; height:12vh;"></a>            
+                                                <p class="p-choose-mobile">Esquistossomose</p>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex pt-3">
+                                            <td>
+                                                <a href="#escolha-nivel" id="lepto" onclick="game(id)"><img src="img/lepto/vetor.png" style="width:12vh; height:12vh;"></a>
+                                                <p class="p-choose-mobile">Leptospirose</p>
+                                            </td>
+                                            <td>
+                                                <a href="#escolha-nivel" id="leishteg" onclick="game(id)"><img src="img/leishteg/transmissao.png" style="width:12vh; height:12vh;"></a>
+                                                <p class="p-choose-mobile">Leishmaniose Tegumentar</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>                            
+                                        <td>
+                                            <p class="title-desktop">Escolha um tema</p>
+                                        </td>
+                                        <td width="30px">
+                                            <img src="img/btn-som.png" style="width: 30px; height: 30px;" class="imageSom" onclick="playPause(src)">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                <tbody class="text-center ">
+                                    <tr class="d-flex justify-content-center">
+                                        <td>
+                                            <a href="#escolha-nivel" id="malaria" onclick="game(id)"><img src="img/malaria/vetor.png" style="width: 140px; height: 140px;"></a>
+                                            <p class="p-choose-desktop text-desktop">Malária</p>
+                                        </td>
+                                        <td>
+                                            <a href="#escolha-nivel" id="leishvis" onclick="game(id)"><img src="img/leishvis/transmissao.png" style="width: 140px; height: 140px;"></a>
+                                            <p class="p-choose-desktop text-desktop">Leishmaniose Visceral</p>
+                                        </td>
+                                        <td>
+                                            <a href="#escolha-nivel"  id="chagas" onclick="game(id)"><img src="img/chagas/vetor.png" style="width: 140px; height: 140px;"></a>
+                                            <p class="p-choose-desktop text-desktop">Doença de Chagas</p>
+                                        </td>
+                                    </tr>
+                                    <tr class="d-flex justify-content-center">
+                                        <td>
+                                            <a href="#escolha-nivel"  id="lepto" onclick="game(id)"><img src="img/lepto/vetor.png" style="width: 140px; height: 140px;"></a>
+                                            <p class="p-choose-desktop text-desktop">Leptospirose</p>
+                                        </td>
+                                        <td>
+                                            <a href="#escolha-nivel"  id="leishteg" onclick="game(id)"><img src="img/leishteg/transmissao.png" style="width: 140px; height: 140px;"></a>
+                                            <p class="p-choose-desktop text-desktop">Leishmaniose Tegumentar</p>
+                                        </td>
+                                        <td>
+                                            <a href="#escolha-nivel"id="esqui" onclick="game(id)"><img src="img/esqui/vetor.png" style="width: 140px; height: 140px;"></a>            
+                                            <p class="p-choose-desktop text-desktop">Esquistossomose</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                                
+                    </section>
+
+                    <section id="escolha-nivel">
+                        <div id = "bloco-mobile" class="d-md-block d-lg-none">
+                            <div class="center" style="width:100%; ">
+                                <table style="width:100%; height:100%;">
+                                    <tbody>
+                                        <tr>                             
+                                            <td style="width:100%;text-align: center; position:absolute">
+                                                <p style="font-size: 4vh;">Escolha um nível</p>
+                                                <p  class="text-center titulo personName-desktop">malario</p>
+                                            </td>
+                                            <td width=100% style="padding-bottom: 30px; text-align: right; padding-right:36px">
+                                                <img src="img/btn-som.png" style="width: 2.8vh; height: 2.8vh;" class="imageSom" onclick="playPause(src);" >
+                                            </td>
+                                        </tr>
+                                        <tr">
+                                            <td  class="pt-3" colspan="2">
+                                                <a href="#jogo-facil" id="facil" onclick="setup(id)"><img src="img/facil.png" style="width: 12vh; height: 12vh;"></a>
+                                                <p style="font-size:2.5vh; line-height: 5vh; text-align:center">Fácil</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <a href="#jogo-medio" id="medio" onclick="setup(id)"><img src="img/medio.png" style="width: 12vh; height: 12vh;"></a>
+                                                <p style="font-size:2.5vh; line-height: 5vh; text-align:center">Médio</p>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <a href="#jogo-dificil" id="dificil" onclick="setup(id)"><img src="img/dificil.png" style="width: 12vh; height: 12vh;"></a>
+                                                <p style="font-size:2.5vh; line-height: 5vh; text-align:center">Difícil</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            <table width="100%" height="20%">
+                                <tbody>
+                                    <tr>                            
+                                        <td>
+                                            <p class="title-desktop">Escolha um nível</p>
+                                        </td>
+                                        <td width="30px">
+                                            <img src="img/btn-som.png" style="width: 30px; height: 30px;" class="imageSom" onclick="playPause(src)">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h3 class="text-center titulo">malario</h3>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="d-flex align-items-center">
+                                <table > 
+                                    <tbody class="text-center ">
+                                        <tr>
+                                            <td>
+                                                <div id="preencher"></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-center">
+                                            <td>
+                                                <a href="#jogo-facil" id="facil" onclick="setup(id)"><img src="img/facil.png" style="width:140px; height:140px"></a>
+                                                <p class="p-choose-desktop text-desktop">Fácil</p>
+                                            </td>
+                                            <td>
+                                                <a href="#jogo-medio" id="medio" onclick="setup(id)"><img src="img/medio.png" style="width:140px; height:140px"></a>
+                                                <p class="p-choose-desktop text-desktop">Médio</p>
+                                            </td>
+                                            <td>
+                                                <a href="#jogo-dificil" id="dificil" onclick="setup(id)"><img src="img/dificil.png" style="width:140px; height:140px"></a>
+                                                <p class="p-choose-desktop text-desktop">Difícil</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>                            
+                    </section>
+
+                    <section id="jogo-facil">
+                        <div id = "bloco-game-mobile" class="d-sm-block d-md-none">
+                            <div class="center" >  
+                                <table >
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h3 class="titulo">Malaria</h3>
+                                            </td>                                
+                                            <td>
+                                                <img src="img/btn-som.png" width="20px" height="20px" class="imageSom" onclick="playPause(src);">
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td>
+                                                <p style="margin-left:8%; margin-right: 8%; word-wrap: none; text-align: left;">Arraste e solte cada imagem sobre o campo correspondente</p>
+                                            </td>
+                                            <td>
+                                                <img src="img/nivel-1.png" style="margin-right:8px"> 
+                                            </td>
+                                            <td>
+                                                <div id=cronometro><span class="minuto"></span>:<span class = "segundo"></span></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>  
+                                            
+                                <div class="reload mt-3">
+                                    <span class=" mb-4 descriptionEasy text-left d-inline-block mosquito"></span>
+                                    <img class=" mb-4 image draggable d-inline-block" style="touch-action: none;" src="" width="80px" height="80px">
+                                
+                                    <img class=" mb-4 space dropzone d-inline-block" src="" width="88px" height="88px">
+                                    <span class=" mb-4 descriptionEasy text-right imageRelated d-inline-block"></span><br>
+                                
+                                    <span class=" mb-4 descriptionEasy text-left d-inline-block mosquito"></span>
+                                    <img class=" mb-4 image draggable d-inline-block" style="touch-action: none;" src="" width="80px" height="80px">
+                                
+                                    <img class=" mb-4 space dropzone d-inline-block" src="" width="88px" height="88px">
+                                    <span class=" mb-4 descriptionEasy text-right imageRelated d-inline-block"></span><br>
+                                
+                                    <span class=" mb-4 descriptionEasy text-left d-inline-block mosquito"></span>
+                                    <img class=" mb-4 image draggable d-inline-block" style="touch-action: none;" src="" width="80px" height="80px">
+                                
+                                    <img class=" mb-4 space dropzone d-inline-block" src="" width="88px" height="88px">
+                                    <span class=" mb-4 descriptionEasy text-right imageRelated d-inline-block"></span><br>                            
+
+                                    <span class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                            
+                                    <a href="#final"  onclick="parar();"><img src="img/btn-enviar.png"></a>                    
+                                </div>
+                            </div>  
+                            <small style="margin-top:80vh; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                        </div>
+                        <div id = "bloco-mobile"  class="d-none d-sm-none d-md-block d-lg-none">
+                            <div class="center"> 
+                                <table width="90%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <td>
+                                                    <img src="img/btn-som.png" width="30px" height="30px" class="imageSom" onclick="playPause(src);">
+                                                </td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h1 class="titulo">Malária</h1>
+                                            </td>                                
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td class="text-justify" style="width:50%;">
+                                            Arraste e solte cada imagem sobre o campo correspondente
+                                            </td>
+                                            <td>
+                                                <img src="img/nivel-1.png"> 
+                                            </td>
+                                            <td>
+                                                <div id=cronometro><span class="minuto"></span>:<span class = "segundo"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>                            
+                                <div class="reload">
+                                    <span class=" descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2  mb-5 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2  mb-5 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class=" descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class=" descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 mb-5 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2 mb-5 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class=" descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class=" descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 mb-5 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2 mb-5 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class=" descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>                            
+                                    
+                                    <span class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                                    
+                                    <a href="#final"  onclick="parar();"><img width="200px" height="50px" src="img/btn-enviar.png"></a>
+                                </div>       
+                            </div>        
+                            <small style="margin-top:70vh; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                                 
+                        </div>
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            <table width="100%">
+                                <tbody>
+                                    <tr >
+                                        <td style="width:calc(70vw - 64px);text-align:center;position: absolute;">
+                                            <p class="title-desktop titulo">Malária</p>
+                                        </td>   
+                                        <td class="d-flex align-items-center justify-content-end">
+                                            <img src="img/nivel-1.png" width="45px" height="45px" style="margin-right: 8px"> 
+                                            <span id=cronometro ><span class="minuto"></span>:<span class = "segundo"></span>
+                                        </td>
+                                        <td style="text-align:end">
+                                            <img src="img/btn-som.png" width="35px" height="35px" class="imageSom" onclick="playPause(src);">
+                                        </td>                             
+                                    </tr>
+                                    <tr class="d-flex justify-content-between remove">
+                                        <td class="text-justify">
+                                            <p style="font-size:1em">Arraste e solte cada imagem sobre o campo correspondente</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="reload center-desktop">
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span><br>
+        
+                                <img class = "mb-3 image hard draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                <img class = "mb-3 image hard draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                <img class = "mb-3 image hard draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px"><br>
+                            
+                                <img class = "space hard dropzone d-inline-block" src="" width="110px" height="110px">
+                                <img class = "space hard dropzone d-inline-block" src="" width="110px" height="110px">
+                                <img class = "space hard dropzone d-inline-block" src="" width="110px" height="110px"><br>
+        
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span><br>
+                                
+                                <span style="margin-top:20px" class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                                <a href="#final" onclick="parar();"><img width="200px" height="50px"  style="margin-top: 20px;"src="img/btn-enviar.png"></a>
+                            </div>
+                            <small style="margin-top:70px; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                        </div>
+                    </section>
+
+                    <section id="jogo-medio">
+                        <div id = "bloco-game-mobile" class="d-sm-block d-md-none">
+                            <div class="center"> 
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h3 class="titulo">Malaria</h3>
+                                            </td>                                
+                                            <td>
+                                                <img src="img/btn-som.png" width="20px" height="20px" class="imageSom" onclick="playPause(src);">
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td>
+                                                Arraste e solte cada imagem sobre o campo correspondente
+                                            </td>
+                                            <td>
+                                                <img src="img/nivel-2.png"> 
+                                            </td>
+                                            <td>
+                                                <div id=cronometro><span class="minuto"></span>:<span class = "segundo"></span></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="reload">
+                                    <span class="mb-2 descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 image draggable d-inline-block" style="touch-action: none;" src="" width="78px" height="78px">
+                                
+                                    <img class="mb-2 space dropzone d-inline-block" src="" width="85px" height="85px">
+                                    <span class="mb-2 descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="mb-2 descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 image draggable d-inline-block" style="touch-action: none;" style="touch-action: none;" src="" width="78px" height="78px">
+                                
+                                    <img class="mb-2 space dropzone d-inline-block" src="" width="85px" height="85px">
+                                    <span class="mb-2 descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="mb-2 descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 image draggable d-inline-block" style="touch-action: none;" src="" width="78px" height="78px">
+                                
+                                    <img class="mb-2 space dropzone d-inline-block" src="" width="85px" height="85px">
+                                    <span class="mb-2 descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>     
+                                    
+                                    <span class="mb-2 descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 image draggable d-inline-block" style="touch-action: none;" src="" width="78px" height="78px">
+                                
+                                    <img class="mb-2 space dropzone d-inline-block" src="" width="85px" height="85px">
+                                    <span class="mb-2 descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>     
+
+                                    <span class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                            
+                                    <a href="#final"  onclick="parar();"><img src="img/btn-enviar.png"></a> 
+                                </div>    
+                            </div>   
+                            <small style="margin-top:80vh; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                        </div>
+        
+                        <div id = "bloco-mobile"  class="d-none d-sm-none d-md-block d-lg-none">
+                            <div class="center">    
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <td>
+                                                    <img src="img/btn-som.png" width="30px" height="30px" class="imageSom" onclick="playPause(src);">
+                                                </td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h1 class="titulo">Malária</h1>
+                                            </td>                                
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td class="text-justify">
+                                                <p>Arraste e solte cada imagem <br>sobre o campo correspondente</p>
+                                            </td>
+                                            <td>
+                                                <img src="img/nivel-2.png"> 
+                                            </td>
+                                            <td>
+                                                <div id=cronometro><span class="minuto"></span>:<span class = "segundo"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="reload">
+                                    <span class="mb-2 descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class="mb-2 ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="mb-2 descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="mb-2 descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class="mb-2 ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="mb-2 descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="mb-2 descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 mr-2 image draggable d-inline-block"style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class="mb-2 ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="mb-2 descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>     
+            
+                                    <span class="mb-2 descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class="mb-2 mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class="mb-2 ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="mb-2 descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>    
+                                    
+                                    <span class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                                    
+                                    <a href="#final"  onclick="parar();"><img width="200px" height="50px" src="img/btn-enviar.png"></a>
+                                </div>
+                            </div>
+                            <small style="margin-top:70vh; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                            
+                        </div>
+        
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:calc(70vw - 64px);text-align:center;position: absolute;" >
+                                            <p class="title-desktop titulo">Malária</p>
+                                        </td>   
+                                        <td class="d-flex align-items-center justify-content-end">
+                                            <img src="img/nivel-2.png" width="45px" height="45px" style="margin-right: 8px"> 
+                                            <span id=cronometro ><span class="minuto"></span>:<span class = "segundo"></span>
+                                        </td>
+                                        <td style="text-align:end">
+                                            <img src="img/btn-som.png" width="35px" height="35px" class="imageSom" onclick="playPause(src);">
+                                        </td>                             
+                                    </tr>
+                                    <tr class="d-flex justify-content-between remove">
+                                        <td class="text-justify">
+                                            <p style="font-size:1em">Arraste e solte cada imagem sobre o campo correspondente</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="reload center-desktop">
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span><br>
+        
+                                <img class = "mb-3 image medium draggable d-inline-block"  style="touch-action: none;" src="" width="100px" height="100px">
+                                <img class = "mb-3 image medium draggable d-inline-block"  style="touch-action: none;" src="" width="100px" height="100px">
+                                <img class = "mb-3 image medium draggable d-inline-block"  style="touch-action: none;" src="" width="100px" height="100px">
+                                <img class = "mb-3 image medium draggable d-inline-block"  style="touch-action: none;" src="" width="100px" height="100px"><br>
+                            
+                                <img class = "space medium dropzone d-inline-block" src="" width="110px" height="110px">
+                                <img class = "space medium dropzone d-inline-block" src="" width="110px" height="110px">
+                                <img class = "space medium dropzone d-inline-block" src="" width="110px" height="110px">
+                                <img class = "space medium dropzone d-inline-block" src="" width="110px" height="110px"><br>
+        
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span><br>
+                                
+                                <span style="margin-top:20px" class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                                <a href="#final" onclick="parar();"><img width="200px" height="50px"  style="margin-top: 20px;"src="img/btn-enviar.png"></a>
+                            </div>
+                            <small style="margin-top:70px; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>    
+                        </div>
+                    </section>
+
+                    <section id="jogo-dificil">
+                        <div id = "bloco-game-mobile" class="d-sm-block d-md-none">
+                            <div class="center"> 
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h3 class="titulo">Malária</h3>
+                                            </td>                                
+                                            <td>
+                                                <img src="img/btn-som.png" width="20px" height="20px" class="imageSom" onclick="playPause(src);">
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td>
+                                                <p>Arraste e solte cada imagem sobre o campo correspondente</p>
+                                            </td>
+                                            <td>
+                                                <img src="img/nivel-3.png"> 
+                                            </td>
+                                            <td>
+                                                <div id=cronometro><span class="minuto"></span>:<span class = "segundo"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="reload">
+                                    <span class="descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="64px" height="64px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="72px" height="72px">
+                                    <span class="descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="64px" height="64px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="72px" height="72px">
+                                    <span class="descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="64px" height="64px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="72px" height="72px">
+                                    <span class="descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>     
+                                    
+                                    <span class="descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="64px" height="64px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="72px" height="72px">
+                                    <span class="descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>  
+                                    
+                                    <span class="descriptionEasy text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="64px" height="64px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="72px" height="72px">
+                                    <span class="descriptionEasy text-right imageRelated d-inline-block">Vetor</span><br>     
+
+                                    <span class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                            
+                                    <a href="#final"  onclick="parar();"><img src="img/btn-enviar.png"></a> 
+                                </div>   
+                            </div>
+                            <small style="margin-top:80vh; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                        </div>
+        
+                        <div id = "bloco-mobile"  class="d-none d-sm-none d-md-block d-lg-none">
+                            <div class="center"> 
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h1 class="titulo">Malária</h1>
+                                            </td>                                
+                                            <td>
+                                                <img src="img/btn-som.png" width="30px" height="30px" class="imageSom" onclick="playPause(src);">
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td class="text-justify">
+                                                <p>Arraste e solte cada imagem <br>sobre o campo correspondente</p>
+                                            </td>
+                                            <td>
+                                                <img src="img/nivel-3.png" > 
+                                            </td>
+                                            <td>
+                                                <div id=cronometro><span class="minuto"></span>:<span class = "segundo"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="reload">
+                                    <span class="descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>
+                                
+                                    <span class="descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>     
+            
+                                    <span class="descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>  
+                                    
+                                    <span class="descriptionMedium text-left d-inline-block mosquito">Mosquito</span>
+                                    <img class = "mr-2 image draggable d-inline-block" style="touch-action: none;" src="" width="100px" height="100px">
+                                
+                                    <img class = "ml-2 space dropzone d-inline-block" src="" width="110px" height="110px">
+                                    <span class="descriptionMedium text-right imageRelated d-inline-block">Vetor</span><br>
+                                    
+                                    <span class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                                    
+                                    <a href="#final"  onclick="parar();"><img width="200px" height="50px" src="img/btn-enviar.png"></a>
+                                </div>  
+                            </div> 
+                            <small style="margin-top:70vh; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                        </div>
+        
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            
+                            <table width="100%">
+                                <tbody>
+                                    <tr >
+                                        <td style="width:calc(70vw - 64px);text-align:center;position: absolute;">
+                                            <p class="title-desktop titulo">Malária</p>
+                                        </td>   
+                                        <td class="d-flex align-items-center justify-content-end">
+                                            <img src="img/nivel-3.png" width="45px" height="45px" style="margin-right: 8px"> 
+                                            <span id=cronometro ><span class="minuto"></span>:<span class = "segundo"></span>
+                                        </td>
+                                        <td style="text-align:end">
+                                            <img src="img/btn-som.png" width="35px" height="35px" class="imageSom" onclick="playPause(src);">
+                                        </td>                             
+                                    </tr>
+                                    <tr class="d-flex justify-content-between remove">
+                                        <td class="text-justify">
+                                            <p style="font-size:1em">Arraste e solte cada imagem sobre o campo correspondente</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>                         
+                            <div class="reload center-desktop">
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span>
+                                <span class="descriptionHard d-inline-block mosquito">Mosquito</span><br>
+        
+                                <img class = "mb-3 image hard draggable d-inline-block" src=""  style="touch-action: none;" width="95px" height="95px">
+                                <img class = "mb-3 image hard draggable d-inline-block" src=""  style="touch-action: none;" width="95px" height="95px">
+                                <img class = "mb-3 image hard draggable d-inline-block" src=""  style="touch-action: none;" width="95px" height="95px">
+                                <img class = "mb-3 image hard draggable d-inline-block" src=""  style="touch-action: none;" width="95px" height="95px">
+                                <img class = "mb-3 image hard draggable d-inline-block" src=""  style="touch-action: none;" width="95px" height="95px"><br>
+                            
+                                <img class = "space hard dropzone d-inline-block" src="" width="105px" height="105px">
+                                <img class = "space hard dropzone d-inline-block" src="" width="105px" height="105px">
+                                <img class = "space hard dropzone d-inline-block" src="" width="105px" height="105px">
+                                <img class = "space hard dropzone d-inline-block" src="" width="105px" height="105px">
+                                <img class = "space hard dropzone d-inline-block" src="" width="105px" height="105px"><br>
+        
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span>
+                                <span class="descriptionHard imageRelated d-inline-block">Vetor</span><br>
+                                
+                                <span style="margin-top:20px" class="off" onmouseover="aviso()" onmouseout="saiaviso()"></span>
+                                <a href="#final" onclick="parar();"><img width="200px" height="50px"  style="margin-top: 20px;"src="img/btn-enviar.png"></a>
+                            </div>
+                            <small style="margin-top:70px; text-align: center; color:rgba(0, 0, 0, 0.5);" class="aviso d-none">Preencha todos os campos</small>
+                        </div>
+                    </section>
+
+                    <section id="final">
+                        <div id = "bloco-game-mobile" class="d-sm-block d-md-none">
+                            <div class="center"> 
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h4 class="result">RESULTADO:</h4>
+                                            </td>                                
+                                            <td>
+                                                <img src="img/btn-som.png" width="20px" height="20px" class="imageSom" onclick="playPause(src);">
+                                            </td>
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td>
+                                                <p>Tempo total:</p>
+                                            </td>
+                                            <td>
+                                                <div id=cronometro  class="ml-5"><span class="minuto"></span>:<span class = "segundo"></span></div>
+            
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="content"></div>   
+                                <a href="#escolha-jogo" class="d-flex justify-content-center"><img width="200px" height="50px" src="img/btn-jogar-novamente.png"></a>
+                            </div>
+                        </div>
+
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-block d-lg-none">
+                            <div class="center"> 
+                                <table width="100%">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <td>
+                                                    <img src="img/btn-som.png" width="20px" height="20px" class="imageSom" onclick="playPause(src);">
+                                                </td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h1 class="result">RESULTADO:</h1>
+                                            </td>                                
+                                        </tr>
+                                        <tr class="d-flex justify-content-between" >
+                                            <td class="text-justify">
+                                                <p>Tempo total:</p>
+                                            </td>
+                                            <td>
+                                                <div id=cronometro  class="ml-5"><span class="minuto"></span>:<span class = "segundo"></span></div>
+            
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="content"></div>  
+                                <a href="#escolha-jogo" class="d-flex justify-content-center"><img width="200px" height="50px" src="img/btn-jogar-novamente.png"></a>
+                            </div>
+                        </div>
+        
+                        <div id = "bloco-desktop"  class="d-none d-sm-none d-md-none d-lg-block">
+                            <table width="100%">
+                                <tbody>
+                                    <tr class="d-flex justify-content-end" >
+                                        <td>
+                                            <img src="img/btn-som.png" width="35px" height="35px" class="imageSom" onclick="playPause(src);">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <p class="result" style="font-size:1.8em">RESULTADO:</p>
+                                        </td>                                
+                                    </tr>
+                                    <tr class="d-flex justify-content-center" style="padding-bottom: 25px; padding-top:10px" >
+                                        <td class="text-justify">
+                                            <p>Tempo total:</p>
+                                        </td>
+                                        <td class="d-flex align-items-center">
+                                            <div id=cronometro  class="ml-5"><span class="minuto"></span>:<span class = "segundo"></span></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>                         
+                            <div class="content text-center" style="padding-bottom: 20px;"></div> 
+                            <a href="#escolha-jogo" class="d-flex justify-content-center"><img width="200px" height="50px" src="img/btn-jogar-novamente.png"></a>     
+     
+                        </div>
+                    </section>
+
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="src/audio.js"></script>
+<script src="src/index.js"></script>
+<script src="src/game.js"></script>
+<script src="src/dnd.js"></script>
+<script src="src/cronometro.js"></script>
+<script src="src/final.js"></script>
+<script>
+    var audio = document.getElementsByTagName('audio')[0];
+
+    audio.addEventListener('canplay', function() {
+        audio.muted = false
+        audio.play()
+    });
+    audio.onerror =  function() {
+    for(let i = 0; i < img.length; i++){
+            img[i].src="img/btn-not-som.png"
+    }
+    audio.pause();
+    audio.muted = true;
+}
+</script>
+
+</html>

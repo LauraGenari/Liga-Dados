@@ -1,0 +1,360 @@
+@import url(https://fonts.googleapis.com/css2?family=Boogaloo&family=Open+Sans&display=swap);
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+
+span > section {
+  display: none;
+}
+
+span.sobre > section#sobre,
+span.creditos > section#creditos,
+span.compartilhar > section#compartilhar,
+span.escolha-jogo > section#escolha-jogo,
+span.escolha-nivel > section#escolha-nivel,
+span.jogo-facil > section#jogo-facil,
+span.jogo-medio > section#jogo-medio,
+span.jogo-dificil > section#jogo-dificil,
+span.final > section#final,
+span.inicio > section#inicio {
+  display: block;
+}
+
+body {
+  background-image: url(img/background.png);
+  display: flex;
+  overscroll-behavior: contain;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  min-height: 100%;
+  width: 100vw;
+}
+.row {
+  height: 100vh;
+  width: 100vw;
+}
+/*tela inicial*/
+#bloco-inicial-mobile {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.025em;
+  background-color: #ffffff;
+  text-align: center;
+  font-family: "Boogaloo", cursive;
+  color: #4d4d4d;
+  padding: 16px 8px;
+  border-radius: 16px;
+  display: block;
+  font-size: 24px;
+  line-height: 2.5rem;
+  width: 75vw;
+}
+
+#margin-mobile {
+  border: thick solid rgba(26, 188, 156, 0);
+  border-width: 16px;
+  border-radius: 16px;
+  background-color: rgba(26, 188, 156, 0.9);
+  width: fit-content;
+}
+
+#bloco-inicial-desktop {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.025em;
+  background-color: #ffffff;
+  text-align: center;
+  font-family: "Boogaloo", cursive;
+  color: #4d4d4d;
+  padding: 16px 32px;
+  border-radius: 16px;
+  display: block;
+  width: 40vw;
+}
+
+#margin-desktop {
+  border: thick solid rgba(26, 188, 156, 0);
+  border-width: 32px;
+  border-radius: 16px;
+  background-color: rgba(26, 188, 156, 0.9);
+  width: fit-content;
+}
+
+/*navbar (todas as telas)*/
+nav {
+  background-color: rgba(26, 188, 156, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 7vh;
+  width: 100vw;
+  position: absolute;
+  left: 0vw;
+  padding: 8px 24px;
+}
+.logo-icon-size {
+  width: 5.25vh;
+  height: 5.25vh;
+}
+.nav-icon-size {
+  width: 4vh;
+  height: 4vh;
+}
+/*telas sobre,creditos, escolha tema e escolha nivel*/
+#bloco-mobile {
+  background-color: #e3e3e3;
+  text-align: center;
+  font-family: "Boogaloo", cursive;
+  color: rgba(0, 0, 0, 0.83);
+  border-radius: 16px;
+  display: block;
+  width: 90vw;
+  height: 80vh;
+  padding: 16px 16px;
+}
+#bloco-desktop {
+  letter-spacing: 0.025em;
+  background-color: rgba(232, 232, 232, 0.97);
+  /*text-align: center;*/
+  font-family: "Boogaloo", cursive;
+  color: rgba(0, 0, 0, 0.83);
+  border-radius: 16px;
+  display: block;
+  width: 75vw;
+  padding: 5vh 4vw;
+  font-size: 24px;
+  height: 80vh;
+  margin-top: 10vh;
+}
+.center{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.p-sobre {
+  font-size: 18px;
+  line-height: 22px;
+}
+.personName-mobile {
+  font-family: " Fira Sans", "sans-serif";
+  font-size: 1em;
+}
+.personName-desktop {
+  font-family: " Fira Sans", "sans-serif";
+  font-size: 0.7em;
+}
+.credits-desktop {
+  font-size: 26px;
+  line-height: 40px;
+}
+.credits-mobile {
+  font-size: 2.5vh;
+  line-height: 2.5vh;
+}
+.topic-credits{
+  margin-top: 16px;
+}
+.p-choose-mobile {
+  font-size: 2.5vh;
+  width: 40vw;
+}
+.p-choose-desktop {
+  width: 22vw;
+  padding-bottom: 28px;
+}
+
+/*telas game*/
+#bloco-game-mobile {
+  letter-spacing: 0.025em;
+  background-color: rgba(232, 232, 232, 0.97);
+  text-align: center;
+  font-family: "Boogaloo", cursive;
+  color: rgba(0, 0, 0, 0.83);
+  display: block;
+  height: 93vh;
+  margin-top: 7vh;
+  padding: 32px 8px;
+  font-size: 16px;
+  width: 100vw;
+}
+
+#cronometro {
+  background-color: #75dec9;
+  border: thick solid #087a64;
+  border-width: 4px;
+  border-radius: 12px;
+  padding: 2px 12px;
+}
+
+.image.hard {
+  margin-right: 4%;
+  margin-left: 4%;
+}
+.space.hard {
+  margin-right: 3.75%;
+  margin-left: 3.75%;
+}
+
+.descriptionHard {
+  width: 100px;
+  margin-right: 4%;
+  margin-left: 4%;
+  vertical-align: middle;
+  font-size:0.8em;
+}
+
+.image.medium {
+  margin-right: 4%;
+  margin-left: 4%;
+}
+.space.medium {
+  margin-right: 3.75%;
+  margin-left: 3.75%;
+}
+
+.descriptionMedium {
+  width: 110px;
+  height: 90px;
+  margin-right: 0;
+  margin-left: 0;
+  vertical-align: top;
+}
+.descriptionEasy {
+  width: 22vw;
+  height: 50px;
+}
+
+.image {
+  vertical-align: top;
+}
+.space {
+  vertical-align: top;
+}
+
+#menu-mobile {
+  background-color: #ffffff;
+  height: 100vh;
+  width: 70%;
+  left: 30%;
+  position: absolute;
+  z-index: 2;
+}
+
+#menu-tablet {
+  background-color: #ffffff;
+  height: 100vh;
+  width: 50%;
+  left: 50%;
+  position: absolute;
+  z-index: 2;
+}
+
+#menu-desktop {
+  background-color: #ffffff;
+  height: 100%;
+  width: 25%;
+  left: 75%;
+  position: absolute;
+  z-index: 2;
+}
+#ret {
+  background-color: #1abc9c;
+  height: 30vh;
+  width: 100%;
+  position: absolute;
+  padding: 8px 8px 8px 16px;
+}
+
+#sombra {
+  background-color: rgba(00, 00, 00, 0.5);
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+.options-desktop {
+  width: 100%;
+  padding-top: 32vh;
+  height: 70vh;
+  padding-left: 32px;
+  font-family: " Fira Sans", "sans-serif";
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 3.5rem;
+  color: rgba(0, 0, 0, 0.83);
+}
+.options-tablet {
+  width: 100%;
+  padding-top: 30vh;
+  height: 70vh;
+  padding-left: 32px;
+  font-family: " Fira Sans", "sans-serif";
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 4rem;
+  color: rgba(0, 0, 0, 0.83);
+}
+.options-mobile {
+  width: 100%;
+  padding-top: 30vh;
+  height: 70vh;
+  padding-left: 32px;
+  font-family: " Fira Sans", "sans-serif";
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 3rem;
+  color: rgba(0, 0, 0, 0.83);
+}
+
+#preencher {
+  background-color: rgba(232, 232, 232, 0);
+  height: 10vh;
+}
+
+
+/*fonts*/
+
+.title-desktop{
+  font-size: 1.75em;
+  text-align:center;
+  padding-bottom: 0.75em;
+  padding-top: 0.25em;
+}
+
+.text-desktop{
+  font-size: 1em;
+}
+
+.menu-links:link{
+  text-decoration:none; 
+  color:black
+}
+.menu-links:visited {
+  color: black;
+  text-decoration: none;
+}
+ 
+.menu-links:hover {
+  color: black;
+  text-decoration: none;
+}
+ 
+.menu-links:active {
+  color: black;
+  text-decoration: none;
+}
+
+.remove{
+  margin-top: 0.7em;
+}
+.center-desktop{
+  text-align: center;
+  position: relative;
+  margin: 0;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -25%)
+}
+
+.off{
+  cursor:not-allowed; width: 200px; height: 50px; position: absolute; background-color: rgba(0, 0, 0, 0);
+}
